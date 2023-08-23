@@ -33,6 +33,8 @@ public class DragAndDrop {
 		
 		Actions action = new Actions(driver);
 		
+		// Drag and Drop
+		
 		action.dragAndDrop(from, to).perform();
 		
 		String messageObtenu = to.getText();

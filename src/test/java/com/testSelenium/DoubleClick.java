@@ -31,6 +31,8 @@ public class DoubleClick {
       
       Actions action = new Actions(driver);
       
+      // Double Click Button
+      
       action.doubleClick(doubleClickBtn).perform();
       
       String messageAtendu = "You have done a double click";
