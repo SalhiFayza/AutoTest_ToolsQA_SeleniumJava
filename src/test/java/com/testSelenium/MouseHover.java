@@ -26,9 +26,13 @@ public class MouseHover {
 		
 		WebDriverWait wait = new WebDriverWait(driver, 10);
 		
+		// Find the element to hover over with xpath
+		
 		mousehover = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"nav\"]/li[2]/a")));
 		
 		Actions action = new Actions(driver);
+		
+		// Perform mouse hover action
 		
 		action.moveToElement(mousehover).perform();
 		

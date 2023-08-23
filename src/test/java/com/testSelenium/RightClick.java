@@ -31,6 +31,8 @@ public class RightClick {
 		
 		Actions action = new Actions(driver);
 		
+		// Right Click Button
+		
 		action.contextClick(rightClickBtn).perform();
 		
 		String messageObtenu = driver.findElement(By.id("rightClickMessage")).getText();

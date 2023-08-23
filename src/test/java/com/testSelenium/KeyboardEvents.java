@@ -41,13 +41,20 @@ public class KeyboardEvents {
 		
 		email.sendKeys("fayzaf@gmail.com");
 		
+		// Create instance of JavaScript executor
+		
 		JavascriptExecutor js = (JavascriptExecutor) driver;
+		
+		// now execute query which actually will scroll until that element is not appeared on page.
+		// Scroll vertically to an element (*_*).
 		
 		js.executeScript("arguments[0].scrollIntoView()", permanentAdress);
 		
 		currentAdress.sendKeys("Thala-Gasserine");
 		
 		Actions action = new Actions(driver);
+		
+		//Type special characters with keyboard actions
 		
 		action.keyDown(currentAdress,Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).perform();
 		
