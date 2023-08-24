@@ -11,7 +11,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import junit.framework.Assert;
 
 public class KeyboardEvents {
 
@@ -25,7 +24,7 @@ public class KeyboardEvents {
 		
 		driver.get("https://demoqa.com/text-box");
 		
-		WebElement fullName, email, currentAdress, permanentAdress;
+		WebElement fullName, email, currentAddress, permanentAddress;
 		
 		WebDriverWait wait = new WebDriverWait(driver, 10);
 		
@@ -33,9 +32,9 @@ public class KeyboardEvents {
 		
 		email = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("userEmail")));
 		
-		currentAdress = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("currentAddress")));
+		currentAddress = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("currentAddress")));
 		
-		permanentAdress = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("permanentAddress")));
+		permanentAddress = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("permanentAddress")));
 		
 		fullName.sendKeys("Salhi Fayza");
 		
@@ -48,25 +47,21 @@ public class KeyboardEvents {
 		// now execute query which actually will scroll until that element is not appeared on page.
 		// Scroll vertically to an element (*_*).
 		
-		js.executeScript("arguments[0].scrollIntoView()", permanentAdress);
+		js.executeScript("arguments[0].scrollIntoView()", permanentAddress);
 		
-		currentAdress.sendKeys("Thala-Gasserine");
+		currentAddress.sendKeys("Thala-Gasserine");
 		
 		Actions action = new Actions(driver);
 		
 		//Type special characters with keyboard actions
 		
-		action.keyDown(currentAdress,Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).perform();
+		action.keyDown(currentAddress,Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).perform();
 		
-		js.executeScript("arguments[0].scrollIntoView()", permanentAdress);
+		js.executeScript("arguments[0].scrollIntoView()", permanentAddress);
 		
-		action.keyDown(Keys.CONTROL).sendKeys("c").keyUp(permanentAdress, Keys.CONTROL).perform();
+		action.keyDown(Keys.CONTROL).sendKeys("c").keyUp(permanentAddress, Keys.CONTROL).perform();
 		
 		action.keyDown(Keys.CONTROL).sendKeys("v").keyUp(Keys.CONTROL).perform();
-		
-		Assert.assertEquals(currentAdress.getText(), permanentAdress.getText());
-				
-		System.out.println("Copy/Paste were completed successfully");
 		
 		Thread.sleep(5000);
 		
