@@ -2,42 +2,46 @@ package com.testSelenium;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import junit.framework.Assert;
 
-public class MouseHover {
+public class Alert {
 
 	public static void main(String[] args) throws InterruptedException {
-
+		
 		WebDriverManager.chromedriver().setup();
 		
 		WebDriver driver = new ChromeDriver();
-		
+
 		driver.manage().window().maximize();
 		
-		driver.get("http://demoqa.com/menu/");
+		driver.get("https://demoqa.com/alerts");
 		
-		WebElement mousehover;
+		new WebDriverWait(driver, 10)
+		.until(ExpectedConditions.visibilityOfElementLocated(By.id("alertButton")))
+	    .click();
 		
-		WebDriverWait wait = new WebDriverWait(driver, 10);
+		Thread.sleep(3000);
 		
-		// Find the element to hover over by xpath
+		// Get Alert Text
 		
-		mousehover = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"nav\"]/li[2]/a")));
+		String alertText = driver.switchTo().alert().getText();
 		
-		Actions action = new Actions(driver);
+		String messageAtendu = "You clicked a button";
 		
-		// Perform mouse hover action
+	    Assert.assertEquals(alertText, messageAtendu);
 		
-		action.moveToElement(mousehover).perform();
+		System.out.println("Okay (*_*)");
 		
-		Thread.sleep(5000);
+		// Accept Alert
+		
+		driver.switchTo().alert().accept();
 		
 		driver.quit();
 	}
+
 }
