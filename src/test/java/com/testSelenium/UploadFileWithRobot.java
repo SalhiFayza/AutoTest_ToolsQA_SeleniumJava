@@ -36,7 +36,7 @@ public class UploadFileWithRobot {
 		fileInput.click();
 
 		// Set the file path to be uploaded.
-		StringSelection filePath = new StringSelection("/home/slahi/upload.png"); // Replace with the actual file path.
+		StringSelection filePath = new StringSelection("/home/salhi/upload.png"); // Replace with the actual file path.
 		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filePath, null);
 
 		// Create a Robot instance.
