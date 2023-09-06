@@ -1,10 +1,13 @@
 package com.testSelenium;
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -14,6 +17,7 @@ import java.awt.event.KeyEvent;
 
 public class UploadFileWithRobot {
 	private WebDriver driver;
+	public WebDriverWait wait;
 
 	@Before
 	public void setUp() {
@@ -38,7 +42,11 @@ public class UploadFileWithRobot {
 		// Set the file path to be uploaded.
 		StringSelection filePath = new StringSelection("/home/salhi/upload.png"); // Replace with the actual file path.
 		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filePath, null);
-
+				
+        //I added sleep to see the result with my eyes. If you want you can remove below line.
+        Thread.sleep(2000);
+        
+        
 		// Create a Robot instance.
 		Robot robot = new Robot();
 
