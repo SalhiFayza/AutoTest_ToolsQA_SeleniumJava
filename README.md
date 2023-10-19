@@ -4,25 +4,7 @@
 
 # How to get text without tags HTML using Selenium and Java 👊
 
-// Locate the element that contains the message
-
-WebElement messageElement = driver.findElement(By.id("res"));
-
-// Get the inner HTML of the element
-
-String innerHtml1 = messageElement.getAttribute("innerHTML");
-
-// Remove HTML tags to extract plain text
-
-String extractedMessage = innerHtml1.replaceAll("<.*?>", "").trim();
-
-// Expected message
-
-String expectedMessage = "1 file has been successfully uploaded.";
-
-// Compare the extracted message with the expected message
-
-Assert.assertEquals(expectedMessage, extractedMessage);
+![Screenshot from 2023-10-19 21-40-19](https://github.com/SalhiFayza/APIs_Products/assets/60444937/78bc1148-529c-44ed-9ca2-e4ebecad91c1)
 
 # Simple Explanation 💻
 [How to get text without html tag selenium.pdf](https://github.com/SalhiFayza/APIs_Products/files/13047482/How.to.get.text.without.html.tag.selenium.pdf)
